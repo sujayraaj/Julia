@@ -1,0 +1,8 @@
+Program to generate various types of Julia Fractals.
+
+Compiling : 
+	make
+
+Running : 
+	juliaFractal <row/column width> <output-filename>
+
