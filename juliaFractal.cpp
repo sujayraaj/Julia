@@ -2,6 +2,8 @@
 #include<complex>
 #include<fstream>
 #include<cstdlib>
+#include <time.h>
+
 using namespace std;
 
 typedef complex<double> Complex;
@@ -60,6 +62,7 @@ out.put(raster[j][i]);
 
 int main(int argc, char* argv[])
 {
+clock_t startTime = clock();
 if(argc!=3){
 printf("Usage: %s <row/column width> <output-filename>\n",*argv);
 return 1;
@@ -89,6 +92,8 @@ fout.close();
 for(int k=0;k<column;k++)
 delete [] im[k];
 delete [] im;
+double secs = double( clock() - startTime ) / (double)CLOCKS_PER_SEC;
+cout<<"Execution Time : "<<secs<<endl;
 return 0;
 }
 }
