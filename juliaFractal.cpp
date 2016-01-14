@@ -16,8 +16,8 @@ return r*r+im*im;
 
 // Can be used alter type fo Julia Fractal created
 // F =  z*z + c //  c = CA + iCB
-#define CA (-0.4)
-#define CB (0.6)
+float CA= -0.4;
+float CB = 0.6;
 
 // The main Julia Set function, defined recursively
 
@@ -63,8 +63,8 @@ out.put(raster[j][i]);
 int main(int argc, char* argv[])
 {
 clock_t startTime = clock();
-if(argc!=3){
-printf("Usage: %s <row/column width> <output-filename>\n",*argv);
+if(argc!=5){
+printf("Usage: %s <row/column width> <CA> <CB> <output-filename>\nWhere the function is F = z*z +c\n c = CA + iCB",*argv);
 return 1;
 }
 else{
@@ -72,8 +72,9 @@ int row=atoi(argv[1]);
 int column=row, count, jul;
 int **im;
 float t,tt;
-
-ofstream fout(argv[2]);
+CA = atof(argv[2]);
+CB = atof(argv[3]);
+ofstream fout(argv[4]);
 im = new int* [column];
 for(int k=0;k<column;k++)
 im[k]=new int [row];
