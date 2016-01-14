@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
 {
 clock_t startTime = clock();
 if(argc!=5){
-printf("Usage: %s <row/column width> <CA> <CB> <output-filename>\nWhere the function is F = z*z +c\n c = CA + iCB",*argv);
+printf("Usage: %s <row/column width> <CA> <CB> <output-filename>\nWhere the function is F = z*z +c\n c = CA + iCB\n",*argv);
 return 1;
 }
 else{
