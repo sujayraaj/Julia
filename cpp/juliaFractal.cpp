@@ -6,11 +6,9 @@
 
 using namespace std;
 
-typedef complex<double> Complex;
-
-inline double squaredLength(Complex i){
-double r=i.real();
-double im=i.imag();
+inline double squaredLength(float *i){
+double r=i[0];
+double im=i[1];
 return r*r+im*im;
 }
 
@@ -21,7 +19,7 @@ float CB = 0.6;
 
 // The main Julia Set function, defined recursively
 
-int Julia(Complex init,int &count)
+int Julia(float *init,int &count)
 {
 if(squaredLength(init)>4.0f){
 return count;
@@ -31,8 +29,12 @@ return 255;
 }
 else{
 ++count;
-init=(init*init)+Complex(CA,CB);
-return Julia(init,count);
+double r=init[0];
+double im=init[1];
+float *arr = new float[2];
+arr[0]=r*r-im*im + CA;
+arr[1]=2*r*im +CB;
+return Julia(arr,count);
 }
 }
 
@@ -84,7 +86,11 @@ for(int i=-row/2;i<row/2;i++)
 for(int j=-column/2;j<column/2;j++)
 {
 count=0;
-jul=Julia(Complex(((float)i*4.0)/(float)row,((float)j*4.0)/(float)column),count);
+float *arr = new float[2];
+arr[0] = (float)i*4.0/(float)row;
+arr[1] = ((float)j*4.0)/(float)column;
+jul=Julia(arr,count);
+delete [] arr;
 set(i+(row/2),j+(column/2),jul,im,row,column);
 }
 }
