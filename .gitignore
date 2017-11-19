@@ -1,2 +1,5 @@
 node_modules/
 juliaFractal
+**/*.png
+**/*.mp4
+**/*.gif
