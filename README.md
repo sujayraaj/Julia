@@ -1,5 +1,7 @@
 # Generate various types of Julia Fractals ( Either JS or C++ )
 
+![Julia Fractal](https://raw.githubusercontent.com/sujayraaj/julia-fractal-creator/master/raster-001.png)
+
 ## Usage
 
 ### NodeJS version
